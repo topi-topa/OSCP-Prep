@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.png" alt="OSCP-Prep Logo" width="300">
+</p>
+
 # OSCP-Prep
 
 Personal preparation repository for the **OSCP** (Offensive Security Certified Professional) certification.
