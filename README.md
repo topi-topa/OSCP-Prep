@@ -18,13 +18,26 @@ Visual decision-tree flowcharts for enumeration and exploitation, organized by p
 
 > **Note:** SVG flowcharts may not render well directly on GitHub due to their size. Click on the file then use the **"Raw"** button to view them in full resolution.
 
+### Cheatsheets
+
+Quick reference guides for fast lookup during engagements:
+
+- **[SMB Enumeration](CHEATSHEETS/SMB_Enumeration_Cheatsheet.md)** - Complete SMB enumeration commands and techniques
+- **[Kerberos Attacks](CHEATSHEETS/Kerberos_Attacks_Cheatsheet.md)** - AS-REP Roasting, Kerberoasting, Golden/Silver Tickets, Delegation attacks
+
 ## Structure
 
 ```
 FLOWCHARTS/
   └── SMB/
+      ├── MANUAL/
+      │   └── SMB_Enumeration_CLI_Flowchart.svg
       └── METASPLOIT/
           └── SMB_Enumeration_Metasploit_Flowchart.svg
+
+CHEATSHEETS/
+  ├── SMB_Enumeration_Cheatsheet.md
+  └── Kerberos_Attacks_Cheatsheet.md
 ```
 
 ## Disclaimer
